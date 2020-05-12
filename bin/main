@@ -1,44 +1,45 @@
 #!/usr/bin/env ruby
+# rubocop: disable Style/GlobalVars:
+# rubocop: disable Style/WordArray:
 
-#board
-#display_board
-#play_game
-#player_turn
-#check_win
-  #check row
-  #check column
-  #check disgonals
-#check tie
-#flip player
+# board
+# display_board
+# play_game
+# player_turn
+# check_win
+# check row
+# check column
+# check disgonals
+# check tie
+# flip player
 
-
-$board = [ '_',  '_', '_', 
-           '_',  '_',  '_', 
-           '_',  '_',  '_']
+$board = [
+  '_', '_', '_',
+  '_', '_', '_',
+  '_', '_', '_'
+]
 $game_on_going = true
-$current_player = "X"
+$current_player = 'X'
 
 def display_board
-  puts $board[0] +  '|' + $board[1] +  '|' + $board[2]
-  puts $board[3] +  '|' + $board[4] +  '|' + $board[5]
-  puts $board[6] +  '|' + $board[7] +  '|' + $board[8]
+  puts $board[0] + '|' + $board[1] + '|' + $board[2]
+  puts $board[3] + '|' + $board[4] + '|' + $board[5]
+  puts $board[6] + '|' + $board[7] + '|' + $board[8]
 end
 
 def players_turn
- 
   puts 'choose from 1 - 9'
   turn = gets.chomp.to_i
-  turn = turn - 1
+  turn -= 1
   $board[turn] = $current_player
-  
 end
 
 def flip_player
-  if $current_player == 'X'
-    $current_player = 'O'
-  else
-    $current_player = 'X'
-  end
+  $current_player = if $current_player == 'X'
+                      'O'
+                    else
+                      'X'
+                    end
 end
 
 def play_game
@@ -50,3 +51,6 @@ def play_game
 end
 
 play_game
+
+# rubocop: enable Style/GlobalVars:
+# rubocop: enable Style/WordArray:
