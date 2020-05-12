@@ -3,52 +3,50 @@
 #board
 #display_board
 #play_game
-#Players (Player1 and player2)
-#prompt players
-#flip player
 #player_turn
+#check_win
+  #check row
+  #check column
+  #check disgonals
+#check tie
+#flip player
 
-$board = ["_", "_","_", 
-          "_", "_", "_", 
-          "_", "_", "_"]
 
+$board = [ '_',  '_', '_', 
+           '_',  '_',  '_', 
+           '_',  '_',  '_']
+$game_on_going = true
+$current_player = "X"
 
 def display_board
-  puts $board[0] + "|" + $board[1] + "|" + $board[2]
-  puts $board[3] + "|" + $board[4] + "|" + $board[5]
-  puts $board[6] + "|" + $board[7] + "|" + $board[8]
+  puts $board[0] +  '|' + $board[1] +  '|' + $board[2]
+  puts $board[3] +  '|' + $board[4] +  '|' + $board[5]
+  puts $board[6] +  '|' + $board[7] +  '|' + $board[8]
 end
 
 def players_turn
-  puts "choose from 1 - 9"
-  turn = gets.chomp
-  if turn == 1
-    $board[0] = "X"
-  elsif turn  == 2
-    $board[1] = "X"
-  elsif turn == 3
-    $board[2] = "x"
-  elsif turn == 4
-    $board[3] = "x"
-  elsif turn == 5
-    $board[4] = "x"
-  elsif turn == 6
-    $board[5] = "x"
-  elsif turn == 7
-    $board[6] = "x"
-  elsif turn == 8
-    $board[7] = "x"
-  elsif turn == 9
-    $board[8] = "x"
+ 
+  puts 'choose from 1 - 9'
+  turn = gets.chomp.to_i
+  turn = turn - 1
+  $board[turn] = $current_player
+  
+end
+
+def flip_player
+  if $current_player == 'X'
+    $current_player = 'O'
+  else
+    $current_player = 'X'
   end
 end
 
-
-
 def play_game
-  display_board()
-  players_turn()
-  display_board()
+  while $game_on_going
+    players_turn
+    flip_player
+    display_board
+  end
 end
 
-play_game()
+play_game
