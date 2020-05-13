@@ -134,6 +134,19 @@ def check_diagonal
     end
 end
 
+def if_tie
+  @board.all? do |item|
+    item = 'X' || item = 'O'
+  end
+end
+
+# def check_tie
+#   if if_tie
+#     @game_on_going = false
+#     puts "It's a tie"
+#   end
+# end
+
 def play_game
   display_board
   puts "It's #{@player1}'s turn to play"
@@ -141,6 +154,11 @@ def play_game
     players_turn
     display_board
     check_win
+    p if_tie
+    if if_tie
+      @game_on_going = false
+      puts "It's a tie"
+    end
     flip_player
   end
 end
