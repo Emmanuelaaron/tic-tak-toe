@@ -1,6 +1,4 @@
 #!/usr/bin/env ruby
-# rubocop: disable Style/GlobalVars:
-# rubocop: disable Style/WordArray:
 
 # board
 # display_board
@@ -59,6 +57,3 @@ def play_game
 end
 
 play_game
-
-# rubocop: enable Style/GlobalVars:
-# rubocop: enable Style/WordArray:
