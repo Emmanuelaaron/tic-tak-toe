@@ -63,6 +63,7 @@ end
 def check_win
   check_row
   check_column
+  check_diagonal
 end
 
 def check_column
@@ -113,6 +114,24 @@ def check_row
         puts "#{@player1} wins" 
       end
   end
+end
+
+def check_diagonal
+  if @board[0] == @board[4] && @board[0] == @board[8] && @board[0] != '_'
+    @game_on_going = false
+    if @current_player == "O"
+      puts "#{@player2} wins"
+    else
+      puts "#{@player1} wins" 
+    end
+  elsif @board[2] == @board[4] && @board[2] == @board[6] && @board[2] != '_'
+      @game_on_going = false
+      if @current_player == "O"
+        puts "#{@player2} wins"
+      else
+        puts "#{@player1} wins" 
+      end
+    end
 end
 
 def play_game
