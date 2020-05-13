@@ -13,45 +13,45 @@
 # check tie
 # flip player
 
-$board = [
+@board = [
   '_', '_', '_',
   '_', '_', '_',
   '_', '_', '_'
 ]
-$game_on_going = true
-$current_player = 'X'
+@game_on_going = true
+@current_player = 'X'
 puts "Player1 enter your name"
-$player1 = gets.chomp
+@player1 = gets.chomp
 puts "Player2 enter your name"
-$player2 = gets.chomp
+@player2 = gets.chomp
 
 def display_board
-  puts $board[0] + '|' + $board[1] + '|' + $board[2]
-  puts $board[3] + '|' + $board[4] + '|' + $board[5]
-  puts $board[6] + '|' + $board[7] + '|' + $board[8]
+  puts @board[0] + '|' + @board[1] + '|' + @board[2]
+  puts @board[3] + '|' + @board[4] + '|' + @board[5]
+  puts @board[6] + '|' + @board[7] + '|' + @board[8]
 end
 
 def players_turn
   puts 'choose from 1 - 9'
   turn = gets.chomp.to_i
   turn -= 1
-  $board[turn] = $current_player
+  @board[turn] = @current_player
 end
 
 def flip_player
-  if $current_player == 'X'
-    $current_player = 'O'
-      puts "It's #{$player2}'s turn to play"
+  if @current_player == 'X'
+    @current_player = 'O'
+      puts "It's #{@player2}'s turn to play"
   else
-    $current_player = 'X'
-      puts "It's #{$player1}'s turn to play"
+    @current_player = 'X'
+      puts "It's #{@player1}'s turn to play"
   end
 end
 
 def play_game
   display_board
-  puts "It's #{$player1}'s turn to play"
-  while $game_on_going
+  puts "It's #{@player1}'s turn to play"
+  while @game_on_going
     players_turn
     display_board
     flip_player
