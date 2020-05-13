@@ -60,12 +60,42 @@ def flip_player
   end
 end
 
+def check_win
+  check_row
+end
+
+def check_row
+  if @board[0] == @board[1] && @board[0] == @board[2]
+    @game_on_going = false
+    if @current_player == "O"
+      puts "#{@player2} wins"
+    else
+      puts "#{@player1} wins" 
+    end
+  elsif @board[3] == @board[4] && @board[3] == @board[5]
+      @game_on_going = false
+      if @current_player == "O"
+        puts "#{@player2} wins"
+      else
+        puts "#{@player1} wins" 
+      end
+  elsif @board[6] == @board[7] && @board[6] == @board[8]
+      @game_on_going = false
+      if @current_player == "O"
+        puts "#{@player2} wins"
+      else
+        puts "#{@player1} wins" 
+      end
+  end
+end
+
 def play_game
   display_board
   puts "It's #{@player1}'s turn to play"
   while @game_on_going
     players_turn
     display_board
+    check_win
     flip_player
   end
 end
