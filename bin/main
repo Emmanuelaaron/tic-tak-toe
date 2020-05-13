@@ -33,7 +33,7 @@ def players_turn
   puts 'choose from 1 - 9'
   turn = gets.chomp.to_i
   #if turn is not in the range of 1-9 return invalid
- 
+  
   arr = (1..9)
   while !arr.include? turn
     display_board
@@ -41,6 +41,12 @@ def players_turn
     turn = gets.chomp.to_i
   end
   turn -= 1
+  while @board[turn] != '_'
+    display_board
+    puts "Slot already taken or invalid, choose from 1 - 9"
+    turn = gets.chomp.to_i
+    turn -= 1
+  end
   @board[turn] = @current_player
 end
 
