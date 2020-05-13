@@ -32,6 +32,14 @@ end
 def players_turn
   puts 'choose from 1 - 9'
   turn = gets.chomp.to_i
+  #if turn is not in the range of 1-9 return invalid
+ 
+  arr = (1..9)
+  while !arr.include? turn
+    display_board
+    puts "invalid choose from 1 - 9"
+    turn = gets.chomp.to_i
+  end
   turn -= 1
   @board[turn] = @current_player
 end
@@ -57,3 +65,4 @@ def play_game
 end
 
 play_game
+# p check_invalid_move(2)
