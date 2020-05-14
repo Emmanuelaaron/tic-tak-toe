@@ -1,18 +1,5 @@
 #!/usr/bin/env ruby
 
-# module GameLogic
-#   def validate_wins(board, a, b, c, current_player, player2, player1)
-#     if board[a] == board[b] && board[b] == board[c] && board[a] != '_'
-#       if current_player == 'O'
-#         puts "#{player2} wins"
-#       else
-#         puts "#{player1} wins" 
-#       end
-#       true
-#     end
-#   end
-# end
-
 class GameLogic
   def initialize(board, current_player)
     @board = board
@@ -32,7 +19,6 @@ class GameLogic
 end
 
 class TicTacToe
-  # include GameLogic
   def initialize
     @board = %w[
       _ _ _
@@ -57,7 +43,6 @@ class TicTacToe
   def players_turn
     puts 'choose from 1 - 9'
     turn = gets.chomp.to_i
-    # if turn is not in the range of 1-9 return invalid
   
     arr = (1..9)
     until arr.include? turn
@@ -90,11 +75,11 @@ class TicTacToe
     @game_on_going = false if validate.validate_wins(0, 3, 6, @Player2, @player1)
     @game_on_going = false if validate.validate_wins(1, 4, 7, @Player2, @player1)
     @game_on_going = false if validate.validate_wins(2, 5, 8, @Player2, @player1)
-    # @game_on_going = false if validate_wins(@board, 0, 1, 2, @current_player, @Player2, @player1)
-    # @game_on_going = false if validate_wins(@board, 3, 4, 5, @current_player, @Player2, @player1)
-    # @game_on_going = false if validate_wins(@board, 6, 7, 8, @current_player, @Player2, @player1)
-    # @game_on_going = false if validate_wins(@board, 0, 4, 8, @current_player, @Player2, @player1)
-    # @game_on_going = false if validate_wins(@board, 2, 4, 6, @current_player, @Player2, @player1)
+    @game_on_going = false if validate.validate_wins(0, 1, 2, @Player2, @player1)
+    @game_on_going = false if validate.validate_wins(3, 4, 5, @Player2, @player1)
+    @game_on_going = false if validate.validate_wins(6, 7, 8, @Player2, @player1)
+    @game_on_going = false if validate.validate_wins(0, 4, 8, @Player2, @player1)
+    @game_on_going = false if validate.validate_wins(2, 4, 6, @Player2, @player1)
   end
 
   def if_tie
