@@ -100,7 +100,7 @@ class TicTacToe
       display_board
       check_win
       check_tie
-      flip_player
+      flip_player if @game_on_going
     end
   end
 end
