@@ -11,7 +11,7 @@ class GameLogic
       if @current_player == 'O'
         puts "#{player2} wins"
       else
-        puts "#{player1} wins" 
+        puts "#{player1} wins"
       end
       true
     end
@@ -31,7 +31,6 @@ class TicTacToe
     @player1 = gets.chomp
     puts 'Player2 enter your name'
     @player2 = gets.chomp
-
   end
 
   def display_board
@@ -43,7 +42,6 @@ class TicTacToe
   def players_turn
     puts 'choose from 1 - 9'
     turn = gets.chomp.to_i
-  
     arr = (1..9)
     until arr.include? turn
       display_board
@@ -84,16 +82,14 @@ class TicTacToe
 
   def if_tie
     result = @board.all? do |item|
-      item == 'X' || item == 'O'
+      item != '_'
     end
     result
   end
 
   def check_tie
-    if if_tie
-      @game_on_going = false
-      puts "It's a tie"
-    end
+    @game_on_going = false if if_tie
+    puts "It's a tie" if if_tie
   end
 
   def play_game
