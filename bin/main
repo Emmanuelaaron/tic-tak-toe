@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
+require_relative '../lib/win_logic'
 
-class TicTacToe
-  def initialize
+class PlayTicTacToe
+  def initialize(player1, player2)
     @board = %w[
       _ _ _
       _ _ _
@@ -9,10 +10,8 @@ class TicTacToe
     ]
     @game_on_going = true
     @current_player = 'X'
-    puts 'Player1 enter your name'
-    @player1 = gets.chomp
-    puts 'Player2 enter your name'
-    @player2 = gets.chomp
+    @player1 = player1
+    @player2 = player2
   end
 
   def display_board
@@ -51,15 +50,18 @@ class TicTacToe
   end
 
   def check_win
-    validate = GameLogic.new(@board, @current_player)
-    @game_on_going = false if validate.validate_wins(0, 3, 6, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(1, 4, 7, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(2, 5, 8, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(0, 1, 2, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(3, 4, 5, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(6, 7, 8, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(0, 4, 8, @Player2, @player1)
-    @game_on_going = false if validate.validate_wins(2, 4, 6, @Player2, @player1)
+    validate = GameWinLogic.new(@board, @current_player)
+    my_arr = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]]
+    my_arr.each do |item|
+      if validate.validate_wins(item[0], item[1], item[2])
+        @game_on_going = false
+        if @current_player == 'O'
+          puts "#{@player2} wins"
+        else
+          puts "#{@player1} wins"
+        end
+      end
+    end
   end
 
   def if_tie
@@ -87,6 +89,11 @@ class TicTacToe
   end
 end
 
-play_game = TicTacToe.new
+puts "Player1's name"
+player1 = gets.chomp
+puts "Playe2's name"
+player2 = gets.chomp
+
+play_game = PlayTicTacToe.new(player1, player2)
 
 play_game.play_game
