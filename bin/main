@@ -1,23 +1,5 @@
 #!/usr/bin/env ruby
 
-class GameLogic
-  def initialize(board, current_player)
-    @board = board
-    @current_player = current_player
-  end
-
-  def validate_wins(pos_a, pos_b, pos_c, player2, player1)
-    if @board[pos_a] == @board[pos_b] && @board[pos_b] == @board[pos_c] && @board[pos_a] != '_'
-      if @current_player == 'O'
-        puts "#{player2} wins"
-      else
-        puts "#{player1} wins"
-      end
-      true
-    end
-  end
-end
-
 class TicTacToe
   def initialize
     @board = %w[
