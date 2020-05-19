@@ -1,7 +1,6 @@
 class GameWinLogic
-  def initialize(board, current_player)
+  def initialize(board)
     @board = board
-    @current_player = current_player
   end
 
   def validate_wins(pos_a, pos_b, pos_c)
