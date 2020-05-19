@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require_relative '../lib/board'
 
 puts "Player1's name"
@@ -46,14 +45,21 @@ def flip_player
 end
 
 def check_win
-  if @my_game.check_win
-    @game_on_going = false
-    if @current_player == "X"
-      puts "#{@player1} wins"
-    else
-      puts "#{@player2} wins"
-    end
+  @game_on_going = false if @my_game.check_win
+  current_player if @my_game.check_win
+end
+
+def current_player
+  if @current_player == 'X'
+    puts "#{@player1} wins"
+  else
+    puts "#{@player2} wins"
   end
+end
+
+def check_tie
+  @game_on_going = false if @my_game.if_tie
+  puts "It's a tie. Game over!" if @my_game.if_tie
 end
 
 def play_game
@@ -63,7 +69,7 @@ def play_game
     players_turn
     display_board
     check_win
-    @my_game.check_tie
+    check_tie
     flip_player if @game_on_going
   end
 end

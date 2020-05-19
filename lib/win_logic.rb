@@ -4,6 +4,6 @@ class GameWinLogic
   end
 
   def validate_wins(pos_a, pos_b, pos_c)
-    true if @board[pos_a] == @board[pos_b] && @board[pos_b] == @board[pos_c] && @board[pos_a] != '_'
+    @board[pos_a] == @board[pos_b] && @board[pos_b] == @board[pos_c] && @board[pos_a] != '_' ? true : false
   end
 end
