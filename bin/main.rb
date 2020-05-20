@@ -34,7 +34,8 @@ def players_turn
     turn = gets.chomp.to_i
   end
   turn -= 1
-  while @my_game.display_my_board[turn] != '_'
+
+  while @my_game.display_my_board[turn] == 'X' || @my_game.display_my_board[turn] == 'O'
     display_board
     puts 'Slot already taken or invalid, choose from 1 - 9'
     turn = gets.chomp.to_i
