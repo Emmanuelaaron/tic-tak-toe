@@ -2,8 +2,17 @@ require_relative '../lib/board'
 
 puts "Player1's name"
 @player1 = gets.chomp
+
+while @player1.split.empty?
+  puts "Please insert player1's name! can't be blank"
+  @player1 = gets.chomp
+end
 puts "Playe2's name"
 @player2 = gets.chomp
+while @player2.split.empty? || @player2 == @player1
+  puts "insert Player2 name and it should be differnt from player1's"
+  @player2 = gets.chomp
+end
 @game_on_going = true
 @current_player = 'X'
 
