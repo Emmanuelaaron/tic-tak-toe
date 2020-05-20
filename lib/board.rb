@@ -26,7 +26,11 @@ class PlayTicTacToe
 
   def if_tie
     @board.all? do |item|
-      item == 'X' or item == 'O'
+      check_o_x(item)
     end
+  end
+
+  def check_o_x(str)
+    str[/[OX]+/] == str
   end
 end
