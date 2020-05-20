@@ -60,15 +60,15 @@ end
 
 def current_player
   if @current_player == 'X'
-    puts "#{@player1} wins"
+    puts "#{@player1} wins. Game Over!"
   else
-    puts "#{@player2} wins"
+    puts "#{@player2} wins. Game Over!"
   end
 end
 
 def check_tie
   @game_on_going = false if @my_game.if_tie
-  puts "It's a tie. Game over!" if @my_game.if_tie
+  puts "It's a tie. Game over!" if @my_game.if_tie && !@my_game.check_win
 end
 
 def play_game
@@ -77,8 +77,8 @@ def play_game
   while @game_on_going
     players_turn
     display_board
-    check_win
     check_tie
+    check_win
     flip_player if @game_on_going
   end
 end
