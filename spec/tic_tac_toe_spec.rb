@@ -2,7 +2,7 @@ require './lib/board'
 
 describe 'PlayTicTacToe' do
   describe "#check_o_x" do
-    game = PlayTicTacToe.new("emma", "jay")
+    game = PlayTicTacToe.new
     it "returns true if X or O exists" do
       expect(game.check_o_x("X")).to be (true)
     end

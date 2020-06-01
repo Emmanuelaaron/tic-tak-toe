@@ -16,7 +16,7 @@ end
 @game_on_going = true
 @current_player = 'X'
 
-@my_game = PlayTicTacToe.new(@player1, @player2)
+@my_game = PlayTicTacToe.new
 
 def display_board
   puts @my_game.display_my_board[0] + '|' + @my_game.display_my_board[1] + '|' + @my_game.display_my_board[2]
