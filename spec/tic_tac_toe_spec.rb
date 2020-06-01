@@ -1,4 +1,5 @@
 require './lib/board'
+require './lib/win_logic'
 
 describe 'PlayTicTacToe' do
 
@@ -18,6 +19,13 @@ describe 'PlayTicTacToe' do
     
     it "returns array of strings" do
       expect(game.display_my_board).to be_an_instance_of(Array)
+    end
+  end
+
+  describe '#check_win' do 
+    game = PlayTicTacToe.new
+    it 'returns false when no win' do
+      expect(game.check_win).to be (false)
     end
   end
 end
