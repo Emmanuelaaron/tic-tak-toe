@@ -28,4 +28,12 @@ describe 'PlayTicTacToe' do
       expect(game.check_win).to be (false)
     end
   end
+
+  describe '#if_tie' do
+    game = PlayTicTacToe.new
+
+    it 'returns false when there is no tie' do
+      expect(game.if_tie).to be(false)
+    end
+  end
 end
