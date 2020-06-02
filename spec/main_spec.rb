@@ -10,4 +10,11 @@ RSpec.describe do
       expect { flip_player(current_player, player1, player2) }.to output("It's Jay's turn to play\n").to_stdout
     end
   end
+
+  describe 'check_tie' do
+    let(:my_game) { PlayTicTacToe.new }
+    it 'returns nothing when there is no tie' do
+      expect {check_tie(my_game)}.to output("").to_stdout
+    end
+  end
 end
