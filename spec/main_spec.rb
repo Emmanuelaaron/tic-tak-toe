@@ -17,4 +17,11 @@ RSpec.describe do
       expect {check_tie(my_game)}.to output("").to_stdout
     end
   end
+
+  describe 'check_win' do
+    let(:my_game) { PlayTicTacToe.new }
+    it 'returns nothing when there is no win' do
+      expect {check_win(my_game)}.to output("").to_stdout
+    end
+  end
 end

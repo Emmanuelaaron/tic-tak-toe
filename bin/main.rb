@@ -36,9 +36,9 @@ def flip_player(current_player, player1, player2)
   end
 end
 
-def check_win
-  @game_on_going = false if @my_game.check_win
-  current_player if @my_game.check_win
+def check_win(my_game)
+  @game_on_going = false if my_game.check_win
+  current_player if my_game.check_win
 end
 
 def current_player
@@ -61,7 +61,7 @@ def play_game
     players_turn
     display_board
     check_tie(@my_game)
-    check_win
+    check_win(@my_game)
     @current_player = flip_player(@current_player, @player1, @player2) if @game_on_going
   end
 end
