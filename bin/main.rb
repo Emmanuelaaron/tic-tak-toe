@@ -38,14 +38,14 @@ end
 
 def check_win(my_game)
   @game_on_going = false if my_game.check_win
-  current_player if my_game.check_win
+  current_player(@player1, @player2) if my_game.check_win
 end
 
-def current_player
+def current_player(player1, player2)
   if @current_player == 'X'
-    puts "#{@player1} wins. Game Over!"
+    puts "#{player1} wins. Game Over!"
   else
-    puts "#{@player2} wins. Game Over!"
+    puts "#{player2} wins. Game Over!"
   end
 end
 

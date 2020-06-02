@@ -24,4 +24,11 @@ RSpec.describe do
       expect {check_win(my_game)}.to output("").to_stdout
     end
   end
+  describe 'current_player' do
+    let(:player1) {'Jay'}
+    let(:player2) {'Emma'}
+    it 'returns the name of the player who wins' do
+      expect {current_player(player1, player2)}.to output("Emma wins. Game Over!\n").to_stdout
+    end
+  end
 end
