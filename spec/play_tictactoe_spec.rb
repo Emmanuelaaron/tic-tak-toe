@@ -1,5 +1,5 @@
-require './lib/board'
-require './lib/win_logic'
+require './lib/play_tictactoe'
+require './lib/game_win_logic'
 
 describe 'PlayTicTacToe' do
   let(:game) { PlayTicTacToe.new }

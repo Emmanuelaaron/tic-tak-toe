@@ -1,4 +1,4 @@
-require_relative '../lib/board'
+require_relative '../lib/play_tictactoe'
 
 def display_board(my_game)
   puts my_game.display_my_board[0] + '|' + my_game.display_my_board[1] + '|' + my_game.display_my_board[2]
@@ -66,7 +66,7 @@ def play_game
   end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   puts "Player1's name"
   @player1 = gets.chomp
 

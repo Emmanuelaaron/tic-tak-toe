@@ -1,4 +1,4 @@
-require_relative '../lib/win_logic'
+require_relative '../lib/game_win_logic'
 
 class PlayTicTacToe
   def initialize

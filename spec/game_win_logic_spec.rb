@@ -1,4 +1,4 @@
-require './lib/win_logic'
+require './lib/game_win_logic'
 
 describe 'GameWinLogic' do
   describe '#validate_wins' do
