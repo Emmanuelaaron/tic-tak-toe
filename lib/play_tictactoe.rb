@@ -1,14 +1,12 @@
-require_relative '../lib/win_logic'
+require_relative '../lib/game_win_logic'
 
 class PlayTicTacToe
-  def initialize(player1, player2)
+  def initialize
     @board = %w[
       1 2 3
       4 5 6
       7 8 9
     ]
-    @player1 = player1
-    @player2 = player2
   end
 
   def display_my_board
